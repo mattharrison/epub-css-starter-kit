@@ -1,4 +1,4 @@
-.h2.title, h1.title, h3.title {
+.h2, h1, h3 {
   -webkit-hyphens: none !important; 
   adobe-hyphenate: none; 
   -moz-hyphens: none; 
