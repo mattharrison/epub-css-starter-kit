@@ -1,0 +1,27 @@
+Epub CSS Starter Kit
+========================
+
+Creating epubs that work in multiple readers can be painful, like debugging web problems back 
+the glory days of ie6. Only this time there is no firebug.
+
+Here's a css file to help alleviate the pain.
+
+If you find that it doesn't work on a particular reader, please file an issue containing the 
+following items:
+
+* Reader platform and version
+* Sample html
+* Sample css
+* Expected result
+
+TODO
+=====
+
+How you can help
+
+* Need to get a css file to start from
+* Matrix of supported HTML
+* Matrix of supported eReaders
+* Generate a sample book showing off html/css
+* Documentation of how to use the css
+* Try out the css or sample book and file bugs/patches
