@@ -1,8 +1,10 @@
-Creating epubs that work in multiple readers can be painful, like debugging web problems back the glory days of ie6. Only this time there is no firebug.
+Creating epubs that work in multiple readers can be painful, like debugging web problems back 
+the glory days of ie6. Only this time there is no firebug.
 
 Here's a css file to help alleviate the pain.
 
-If you find that it doesn't work on a particular reader, please file an issue containing the following items:
+If you find that it doesn't work on a particular reader, please file an issue containing the 
+following items:
 
 * Reader platform and version
 * Sample html
