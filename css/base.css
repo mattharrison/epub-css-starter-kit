@@ -1,5 +1,8 @@
-.h2, h1, h3 {
+h1, h2, h3, h4, h5, h6 {
   -webkit-hyphens: none !important; 
   adobe-hyphenate: none; 
   -moz-hyphens: none; 
+  hyphens: none;
+  page-break-after: avoid;
 }
+
