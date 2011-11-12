@@ -1,8 +1,104 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, /*ol, ul, li, */
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    /* kindle doesn't like reset of lists */
+    /* Note kindle hates margin:0 ! (or margin-left or margin-top set) it inserts newlines galore */
+    /* margin: 0; */
+    margin-right: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    /* font: inherit; */
+    vertical-align: baseline;
+}
+/* /\* HTML5 display-role reset for older browsers *\/ */
+/* article, aside, details, figcaption, figure, */
+/* footer, header, hgroup, menu, nav, section { */
+/*   display: block; */
+/* } */
+/* body { */
+/* 	line-height: 1; */
+/* } */
+/* ol, ul { */
+/* 	list-style: none; */
+/* } */
+/* blockquote, q { */
+/* 	quotes: none; */
+/* } */
+/* blockquote:before, blockquote:after, */
+/* q:before, q:after { */
+/* 	content: ''; */
+/* 	content: none; */
+/* } */
+/* table { */
+/* 	border-collapse: collapse; */
+/* 	border-spacing: 0; */
+/* } */
+
+/* end reset */
+
 h1, h2, h3, h4, h5, h6 {
-  -webkit-hyphens: none !important; 
-  adobe-hyphenate: none; 
-  -moz-hyphens: none; 
+  -webkit-hyphens: none !important;
+  adobe-hyphenate: none;
+  -moz-hyphens: none;
   hyphens: none;
   page-break-after: avoid;
 }
 
+/* Do not indent first paragraph. Mobi will need class='first_para' */
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p,
+p.first_para {
+  text-indent:0;
+}
+
+p {
+  text-indent:1em;
+  line-height: 1.5em;
+  margin: 0;
+  text-align: justify;
+  orphans: 2;
+  widow: 2;
+  -webkit-hyphenate-before:3;
+  hyphenate-before:3;
+  -webkit-hyphenate-after:3;
+  hyphenate-after:3;
+  -webkit-hyphenate-lines:2;
+  hyphenate-lines:2;
+}
+
+/* lists */
+ul, ol, dl {
+  margin:1em 0em 1em 0em;
+}
+
+li {
+  line-height:1.5em;
+  orphans:2;
+  widows:2;
+  text-align:justify;
+  text-indent: 0;
+  margin: 0;
+}
+
+/* code for me */
+pre {
+  margin-left: 2em;
+  font-size: .8em;
+  white-space: pre-wrap;
+  display: block;
+}
