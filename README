@@ -17,6 +17,18 @@ following items:
 Some issues are ereader bugs. Some are css bugs. Ideally the css will look "good enough" on 
 most devices. You can then take the css and tweak it for devices you want to focus on.
 
+Focus
+======
+
+What platform is the focus of this effort? Oddly enough, the .mobi format for Kindle, is the least 
+common denominator that we want to get working. Given that it has 70% of the market, it makes sense 
+to put the effort there. Every effort has been made so that epubs using this css will generate clean
+mobi's with kindlegen.
+
+The other platforms of significance are nook and ibooks, in that order. Any other platform is icing 
+on the cake. Support for other platforms will be given provided they don't break the top 3 platforms.
+Otherwise it is suggested that these one off platforms be given custom css on top of the starter kit.
+
 TODO
 =====
 
