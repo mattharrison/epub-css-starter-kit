@@ -11,7 +11,6 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-    /* kindle doesn't like reset of lists */
     /* Note kindle hates margin:0 ! (or margin-left or margin-top set) it inserts newlines galore */
     /* margin: 0; */
     margin-right: 0;
@@ -24,7 +23,7 @@ time, mark, audio, video {
 /* /\* HTML5 display-role reset for older browsers *\/ */
 /* article, aside, details, figcaption, figure, */
 /* footer, header, hgroup, menu, nav, section { */
-/*   display: block; */
+/*     display: block; */
 /* } */
 /* body { */
 /* 	line-height: 1; */
@@ -40,12 +39,17 @@ time, mark, audio, video {
 /* 	content: ''; */
 /* 	content: none; */
 /* } */
-/* table { */
-/* 	border-collapse: collapse; */
-/* 	border-spacing: 0; */
-/* } */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
 
 /* end reset */
+
+@page {
+     margin-top:30px;
+     margin-bottom:20px;
+}
 
 h1, h2, h3, h4, h5, h6 {
   -webkit-hyphens: none !important;
@@ -53,6 +57,27 @@ h1, h2, h3, h4, h5, h6 {
   -moz-hyphens: none;
   hyphens: none;
   page-break-after: avoid;
+}
+
+h1 {
+  font-size:xx-large%;
+  margin-bottom: 3em;
+}
+h2 {
+  font-size:200%;
+}
+h3 {
+  font-size:180%;
+}
+h4 {
+  font-size:140%;
+}
+h5 {
+  font-size:110%;
+}
+
+h6 {
+  font-size:100%;
 }
 
 /* Do not indent first paragraph. Mobi will need class='first_para' */
@@ -81,6 +106,15 @@ p {
   hyphenate-lines:2;
 }
 
+.drop {
+  overflow: hidden;
+  line-height: 89%;
+  height: 0.80em;
+  font-size: 281%;
+  margin-right: 0.075em;
+  float:left;
+}
+
 /* lists */
 ul, ol, dl {
   margin:1em 0em 1em 0em;
@@ -101,4 +135,44 @@ pre {
   font-size: .8em;
   white-space: pre-wrap;
   display: block;
+}
+
+
+/* sidebar */
+div.note {
+  margin:1em 0em 1em 0em !important;
+  padding:1em 0em 1em 0em !important;
+  border:1px solid #178E7D;
+  page-break-inside:avoid;
+}
+
+p.note-title {
+  font-size:small;
+  text-align:center;
+  font-weight:bold;
+  font-style:normal;
+  -webkit-hyphens:none;
+  -moz-hyphens:none;
+  hyphens:none;
+  /* margin:0em 1em 0em 1em; */
+}
+
+div.note p,
+.note-p {
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+.center {
+  text-align:center;
+}
+
+.right {
+  text-align:right;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  page-break-inside: avoid;
 }
