@@ -123,7 +123,7 @@ li
 /* code for me
 
 pre
-  margin-left: .5em
+  margin-left: 0
   /* margin-top: 1em;
   margin-bottom: 1em
   /* mobi fun
@@ -133,19 +133,22 @@ pre
 
 div
   &.div-literal-block-admonition
-    margin-left: 1.0em
+    margin-left: 1em
   &.note, &.tip
     margin: 1em 0 1em 0 !important
-    padding: 1em 0 1em 0 !important
-    border: 1px solid $sidebar-border-color
+    padding: 0 !important
+    /* kindle is finnicky with borders, bottoms dissappear, width is ignored */
+    border-top: 0px solid $sidebar-border-color
+    border-bottom: 0px dashed $sidebar-border-color
     page-break-inside: avoid
 
 /* sidebar
 
 p.note-title, .admonition-title
-  margin-top: 1em
+  margin-top: 0
   /*mobi doesn't like div margins
-  font-size: small
+  font-variant: small-caps
+  font-size: 1em
   text-align: center
   font-weight: bold
   font-style: normal
@@ -155,17 +158,17 @@ p.note-title, .admonition-title
   /* margin:0 1em 0 1em;
 
 div.note p, .note-p
-  text-indent: 0
-  margin-left: 2em
-  margin-right: 2em
+  text-indent: 1em
+  margin-left: 0
+  margin-right: 0
   font-style: italic
 
 /* Since Kindle doesn't like multiple classes have to have combinations
 
 .note-p-first
   text-indent: 0
-  margin-left: 2em
-  margin-right: 2em
+  margin-left: 0
+  margin-right: o
 
 
 /* Tables
@@ -217,3 +220,15 @@ sub
 
 .f-left
   float: left
+
+.box-example
+  background-color: green
+  margin: 2em
+  padding: 1em
+  border: 2px dashed red
+
+.padding-only
+  padding: 1em
+
+.margin-only
+  margin: 2em
