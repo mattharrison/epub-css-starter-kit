@@ -152,7 +152,7 @@ div.note p, .note-p {
 .note-p-first {
   text-indent: 0;
   margin-left: 0;
-  margin-right: o; }
+  margin-right: 0; }
 
 /* Tables */
 table {
