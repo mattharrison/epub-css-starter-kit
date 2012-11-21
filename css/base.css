@@ -2,14 +2,23 @@
 /* Also, it tries to make h2 be 1em */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   /* Note kindle hates margin:0 ! (or margin-left or margin-top set) it inserts newlines galore */
-  /* margin: 0; */
+  /* margin: 0 */
   margin-right: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
-  /* font: inherit; */
+  /* font: inherit */
   vertical-align: baseline; }
 
+/* optimal sizing see http://demosthenes.info/blog/578/Crafting-Optimal-Type-Sizes-For-Web-Pages */
+/* kobo and nook dislike this */
+/* */
+/*html */
+/*  font-size: 62.5% */
+/*body */
+/*  font-size: 1.6rem */
+/*  line-height: 2.56rem */
+/*  text-rendering: optimizeLegibility */
 table {
   border-collapse: collapse;
   border-spacing: 0; }
@@ -27,8 +36,9 @@ div.cover {
   div.cover img {
     height: 100%;
     max-width: 100%;
-    padding: 0px;
-    margin: 0px; }
+    padding: 10px;
+    margin: 0px;
+    background-color: #cccccc; }
 
 .cover-img {
   height: 100%;
@@ -59,13 +69,13 @@ h3 {
   font-size: 0.625em; }
 
 h4 {
-  font-size: 0.391em; }
+  font-size: 0.39063em; }
 
 h5 {
-  font-size: 0.244em; }
+  font-size: 0.24414em; }
 
 h6 {
-  font-size: 0.153em; }
+  font-size: 0.15259em; }
 
 /* Do not indent first paragraph. Mobi will need class='first-para' */
 h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
@@ -78,13 +88,19 @@ p {
   -webkit-hyphenate-after: 3;
   -webkit-hyphenate-before: 3;
   -webkit-hyphenate-lines: 2;
-  line-height: 1.25em;
+  line-height: 1.5em;
   margin: 0;
-  orphans: 2;
   text-align: justify;
   text-indent: 1em;
+  orphans: 2;
   widows: 2; }
-  p.first-para {
+  p.first-para, p.note-p-first {
+    text-indent: 0; }
+  p.first-para-chapter::first-line {
+    /* handle run-in */
+    text-indent: 0;
+    font-variant: small-caps; }
+  p.no-indent {
     text-indent: 0; }
 
 .drop {
@@ -97,35 +113,59 @@ p {
 
 /* lists */
 ul, ol, dl {
-  margin: 1em 0 1em 0; }
+  margin: 1em 0 1em 0;
+  text-align: left; }
 
 li {
-  line-height: 1.25em;
+  line-height: 1.5em;
   orphans: 2;
   widows: 2;
   text-align: justify;
   text-indent: 0;
   margin: 0; }
 
-/* code for me */
+dt {
+  font-weight: bold; }
+
+blockquote {
+  font-style: italic; }
+
+tt, code, samp, kbd {
+  font-size: 0.8em;
+  font-family: "Courier New", Courier, monospace; }
+
 pre {
-  margin-left: 0;
-  /* margin-top: 1em; */
+  margin-left: 1em;
+  /* margin-top: 1em */
   margin-bottom: 1em;
-  /* mobi fun */
-  font-size: 0.6em;
+  font-size: 0.8em;
   font-family: "Courier New", Courier, monospace;
   white-space: pre-wrap;
   display: block; }
 
+figure {
+  padding: 1em;
+  background-color: #cccccc;
+  border: 1px solid black;
+  text-align: center; }
+  figure img {
+    max-width: 100%;
+    max-height: 100%;
+    margin-bottom: 1em; }
+  figure figcaption {
+    text-align: center;
+    font-size: 0.8em; }
+
 div.div-literal-block-admonition {
-  margin-left: 1em; }
+  margin-left: 1em;
+  background-color: #cccccc; }
 div.note, div.tip {
   margin: 1em 0 1em 0 !important;
-  padding: 0 !important;
+  background-color: #cccccc;
+  padding: 1em !important;
   /* kindle is finnicky with borders, bottoms dissappear, width is ignored */
-  border-top: 0px solid #178e7d;
-  border-bottom: 0px dashed #178e7d;
+  border-top: 0px solid #cccccc;
+  border-bottom: 0px dashed #cccccc;
   page-break-inside: avoid; }
 
 /* sidebar */
@@ -133,14 +173,14 @@ p.note-title, .admonition-title {
   margin-top: 0;
   /*mobi doesn't like div margins */
   font-variant: small-caps;
-  font-size: 1em;
+  font-size: 0.9em;
   text-align: center;
   font-weight: bold;
   font-style: normal;
   -webkit-hyphens: none;
   -moz-hyphens: none;
   hyphens: none;
-  /* margin:0 1em 0 1em; */ }
+  /* margin:0 1em 0 1em */ }
 
 div.note p, .note-p {
   text-indent: 1em;
@@ -149,19 +189,26 @@ div.note p, .note-p {
   font-style: italic; }
 
 /* Since Kindle doesn't like multiple classes have to have combinations */
-.note-p-first {
-  text-indent: 0;
-  margin-left: 0;
-  margin-right: 0; }
-
+/*.note-p-first */
+/*  text-indent: 0 */
+/*  margin-left: 0 */
+/*  margin-right: 0 */
 /* Tables */
 table {
-  width: 100%;
+  /*width: 100% */
   page-break-inside: avoid;
-  border: 1px; }
+  border: 1px;
+  margin: 1em auto;
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+th {
+  font-variant: small-caps;
+  padding: 5px !important;
+  vertical-align: baseline;
+  border-bottom: 1px solid black; }
 
 td {
-  border-bottom: 1px solid black;
   font-size: small;
   hyphens: none;
   -moz-hyphens: none;
@@ -170,15 +217,27 @@ td {
   page-break-inside: avoid;
   text-align: left;
   text-indent: 0;
-  vertical-align: top; }
+  vertical-align: baseline; }
+
+td:nth-last-child {
+  border-bottom: 1px solid black; }
+
+.zebra {
+  /* shade background by groups of three */ }
+  .zebra tr th {
+    background-color: white; }
+  .zebra tr:nth-child(6n-1), .zebra tr:nth-child(6n+0), .zebra tr:nth-child(6n+1) {
+    background-color: #cccccc; }
 
 sup {
   vertical-align: super;
-  font-size: 0.5em; }
+  font-size: 0.5em;
+  line-height: 0.5em; }
 
 sub {
   vertical-align: sub;
-  font-size: 0.5em; }
+  font-size: 0.5em;
+  line-height: 0.5em; }
 
 .footnote {
   font-size: 0.8em; }
@@ -189,7 +248,10 @@ sub {
 
 /* Samples */
 .center {
-  text-align: center; }
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block; }
 
 .right {
   text-align: right; }
@@ -214,3 +276,69 @@ sub {
 
 .margin-only {
   margin: 2em; }
+
+.page-break-before {
+  page-break-before: always; }
+
+.page-break-after {
+  page-break-after: always; }
+
+.tocEntry-1 {
+  /* empty */ }
+
+.tocEntry-2 {
+  text-indent: 1em; }
+
+.tocEntry-3 {
+  text-indent: 2em; }
+
+.tocEntry-4 {
+  text-indent: 3em; }
+
+/* media queries at bottom to not confuse other platforms */
+@media amzn-kf8 {
+  span.dropcapold {
+    font-size: 300%;
+    font-weight: bold;
+    height: 1em;
+    float: left;
+    margin: -0.2em 0.1em 0 0.1em; }
+
+  .dropcap {
+    line-height: 100%;
+    font-size: 341%;
+    margin-right: 0.075em;
+    margin-top: -0.22em;
+    float: left;
+    height: 0.8em; } }
+@media amzn-mobi {
+  span.dropcap {
+    font-size: 1.5em;
+    font-weight: bold; }
+
+  tt {
+    /* mobi fun */
+    font-size: 3;
+    font-family: "Courier New", Courier, monospace; }
+
+  pre {
+    margin-left: 1em;
+    margin-bottom: 1em;
+    /* mobi fun */
+    font-size: small;
+    font-family: "Courier New", Courier, monospace;
+    white-space: pre-wrap;
+    display: block; }
+
+  /* Sass wants to add em to the end..., hardcoded for now */
+  h1 {
+    font-size: 4; }
+
+  h2 {
+    font-size: 3; }
+
+  h3 {
+    font-size: 2em; }
+
+  h4 {
+    font-size: 1em; } }

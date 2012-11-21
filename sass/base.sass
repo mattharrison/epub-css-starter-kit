@@ -1,6 +1,6 @@
-$sidebar-border-color: #178E7D
+$sidebar-border-color: #ccc
 $table-border-color: black
-$line-height: 1.25em
+$line-height: 1.5em
 
 /* This assumes geometric header shrinkage
 /* Also, it tries to make h2 be 1em
@@ -10,13 +10,24 @@ $heading-shrinkage: 1/1.6
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
   /* Note kindle hates margin:0 ! (or margin-left or margin-top set) it inserts newlines galore
-  /* margin: 0;
+  /* margin: 0
   margin-right: 0
   padding: 0
   border: 0
   font-size: 100%
-  /* font: inherit;
+  /* font: inherit
   vertical-align: baseline
+
+
+/* optimal sizing see http://demosthenes.info/blog/578/Crafting-Optimal-Type-Sizes-For-Web-Pages
+/* kobo and nook dislike this
+/*
+/*html
+/*  font-size: 62.5%
+/*body
+/*  font-size: 1.6rem
+/*  line-height: 2.56rem
+/*  text-rendering: optimizeLegibility
 
 
 table
@@ -38,8 +49,9 @@ div.cover
   img
     height: 100%
     max-width: 100%
-    padding: 0px
+    padding: 10px
     margin: 0px
+    background-color: #ccc
 
 .cover-img
   height: 100%
@@ -84,7 +96,13 @@ h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p
   text-indent: 0
 
 p
-  &.first-para
+  &.first-para, &.note-p-first
+    text-indent: 0
+  &.first-para-chapter::first-line
+    /* handle run-in
+    text-indent: 0
+    font-variant: small-caps
+  &.no-indent
     text-indent: 0
   hyphenate-after: 3
   hyphenate-before: 3
@@ -94,9 +112,9 @@ p
   -webkit-hyphenate-lines: 2
   line-height: $line-height
   margin: 0
-  orphans: 2
   text-align: justify
   text-indent: 1em
+  orphans: 2
   widows: 2
 
 .drop
@@ -111,6 +129,7 @@ p
 
 ul, ol, dl
   margin: 1em 0 1em 0
+  text-align: left
 
 li
   line-height: $line-height
@@ -120,24 +139,45 @@ li
   text-indent: 0
   margin: 0
 
-/* code for me
+dt
+  font-weight: bold
+
+blockquote
+  font-style: italic
+
+tt, code, samp, kbd
+  font-size: .8em
+  font-family: "Courier New", Courier, monospace
 
 pre
-  margin-left: 0
-  /* margin-top: 1em;
+  margin-left: 1em
+  /* margin-top: 1em
   margin-bottom: 1em
-  /* mobi fun
-  font-size: .6em
+  font-size: .8em
   font-family: "Courier New", Courier, monospace
   white-space: pre-wrap
   display: block
 
+figure
+  padding: 1em
+  background-color: $sidebar-border-color
+  border: 1px solid black
+  text-align: center
+  img
+    max-width: 100%
+    max-height: 100%
+    margin-bottom: 1em
+  figcaption
+    text-align: center
+    font-size: .8em
 div
   &.div-literal-block-admonition
     margin-left: 1em
+    background-color: $sidebar-border-color
   &.note, &.tip
     margin: 1em 0 1em 0 !important
-    padding: 0 !important
+    background-color: $sidebar-border-color
+    padding: 1em !important
     /* kindle is finnicky with borders, bottoms dissappear, width is ignored */
     border-top: 0px solid $sidebar-border-color
     border-bottom: 0px dashed $sidebar-border-color
@@ -149,14 +189,14 @@ p.note-title, .admonition-title
   margin-top: 0
   /*mobi doesn't like div margins
   font-variant: small-caps
-  font-size: 1em
+  font-size: .9em
   text-align: center
   font-weight: bold
   font-style: normal
   -webkit-hyphens: none
   -moz-hyphens: none
   hyphens: none
-  /* margin:0 1em 0 1em;
+  /* margin:0 1em 0 1em
 
 div.note p, .note-p
   text-indent: 1em
@@ -166,21 +206,29 @@ div.note p, .note-p
 
 /* Since Kindle doesn't like multiple classes have to have combinations
 
-.note-p-first
-  text-indent: 0
-  margin-left: 0
-  margin-right: 0
+/*.note-p-first
+/*  text-indent: 0
+/*  margin-left: 0
+/*  margin-right: 0
 
 
 /* Tables
 
 table
-  width: 100%
+  /*width: 100%
   page-break-inside: avoid
   border: 1px
+  margin: 1em auto
+  border-collapse: collapse
+  border-spacing: 0
+
+th
+  font-variant: small-caps
+  padding: 5px !important
+  vertical-align: baseline
+  border-bottom: 1px solid $table-border-color
 
 td
-  border-bottom: 1px solid $table-border-color
   font-size: small
   hyphens: none
   -moz-hyphens: none
@@ -189,15 +237,27 @@ td
   page-break-inside: avoid
   text-align: left
   text-indent: 0
-  vertical-align: top
+  vertical-align: baseline
+
+td:nth-last-child
+  border-bottom: 1px solid $table-border-color
+
+.zebra
+  /* shade background by groups of three
+  tr th
+    background-color: white
+  tr:nth-child(6n-1), tr:nth-child(6n+0), tr:nth-child(6n+1)
+    background-color: #ccc
 
 sup
   vertical-align: super
   font-size: .5em
+  line-height: .5em
 
 sub
   vertical-align: sub
   font-size: .5em
+  line-height: .5em
 
 .footnote
   font-size: .8em
@@ -209,6 +269,9 @@ sub
 /* Samples
 .center
   text-align: center
+  margin-left: auto
+  margin-right: auto
+  display: block
 
 .right
   text-align: right
@@ -233,3 +296,72 @@ sub
 
 .margin-only
   margin: 2em
+
+.page-break-before
+  page-break-before: always
+
+.page-break-after
+  page-break-after: always
+
+.tocEntry-1
+  /* empty
+
+.tocEntry-2
+  text-indent: 1em
+
+.tocEntry-3
+  text-indent: 2em
+
+.tocEntry-4
+  text-indent: 3em
+
+/* media queries at bottom to not confuse other platforms
+
+@media amzn-kf8
+  span.dropcapold
+    font-size: 300%
+    font-weight: bold
+    height: 1em
+    float: left
+    margin: -0.2em 0.1em 0 0.1em
+
+  .dropcap
+    line-height: 100%
+    font-size: 341%
+    margin-right: 0.075em
+    margin-top: -0.22em
+    float: left
+    height: 0.8em
+
+
+@media amzn-mobi
+  span.dropcap
+    font-size: 1.5em
+    font-weight: bold
+
+  tt
+    /* mobi fun
+    font-size: 3
+    font-family: "Courier New", Courier, monospace
+
+  pre
+    margin-left: 1em
+    margin-bottom: 1em
+    /* mobi fun
+    font-size: small
+    font-family: "Courier New", Courier, monospace
+    white-space: pre-wrap
+    display: block
+
+  /* Sass wants to add em to the end..., hardcoded for now
+  h1
+    font-size: 4
+
+  h2
+    font-size: 3
+
+  h3
+    font-size: 1 + $h1-size/1.6
+
+  h4
+    font-size: $h1-size/1.6
