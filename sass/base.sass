@@ -206,6 +206,9 @@ img
   max-width: 80%
   max-height: 80%
 
+.group
+  page-break-inside: avoid
+
 .caption
   text-align: center
   font-size: .8em
@@ -216,6 +219,7 @@ p img
   border: none
 
 figure
+  /* These first 3 should center figures
   padding: 1em
   background-color: $sidebar-border-color
   border: 1px solid black
@@ -259,7 +263,7 @@ div.note p, .note-p
 /*  font-style: italic
 
 /* Since Kindle doesn't like multiple classes have to have combinations
-.note-p-first
+div.note p.note-p-first
   text-indent: 0
   margin-left: 0
   margin-right: 0
@@ -435,6 +439,208 @@ table.footnote
 .size5
   font-size: x-large
 
+/* Poetic margins
+.stanza
+  margin-top: 1em
+  font-family: serif
+.poetry
+  margin: 1em
+/*line number
+.ln
+  float: left
+  color: #999
+  font-size: .8em
+  font-style: italic
+.pos1
+  margin-left: 1em
+  text-indent: -1em
+.pos2
+  margin-left: 2em
+  text-indent: -1em
+.pos3
+  margin-left: 3em
+  text-indent: -1em
+.pos4
+  margin-left: 4em
+  text-indent: -1em
+
+@font-face
+  font-family: Inconsolata Mono
+  font-style: normal
+  font-weight: normal
+  src: url("Inconsolata.otf")
+
+.normal-mono
+  font-family: "Courier New", Courier, monospace
+
+tt, pre, .mono
+  /* Kindle Keyboard has KF8 but no font support, fallback to default mono
+  font-family: "Inconsolata Mono", "Courier New", Courier, monospace
+  font-style: normal
+
+@font-face
+  font-family: mgopen modata
+  font-style: normal
+  font-weight: normal
+  font-size: .5em
+  src: url("MgOpenModataRegular.ttf")
+
+.modata
+  font-family: "mgopen modata"
+
+/* Nook works to here :)
+/* media queries at bottom to not confuse other platforms
+/*@media (min-width: 200px)
+/*  .px200
+/*    color: $green
+/*
+/*@media (min-width: 400px)
+/*  .px400
+/*    color: $green
+/*
+/*@media (min-width: 800px)
+/*  .px800
+/*    color: $green
+/*
+/*@media (min-width: 1200px)
+/*  .px1200
+/*    color: $green
+/* broke nook!
+/*/* WIP device specific...
+/*@media (min-width: 600px) and (height: 800px) and (amzn-kf8)
+/*  /* Kindle Keyboard w/ KF8
+/*  .kk
+/*    color: $green
+/*
+/*/* @media (min-width: 768px) and (height: 1024px) and (amzn-kf8)
+/*@media (min-width: 748px) and (min-height: 1004px) and (amzn-kf8)
+/*  /* Kindle Paperwhite
+/*  .kpw
+/*    color: $green
+/*
+/*@media (width: 600px) and (height: 1024px) and (amzn-kf8)
+/*  /* Kindle Fire
+/*  .kf
+/*    color: $green
+/*
+/*/* Retina iPad
+/*@media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5)
+/*  .retina
+/*    color: $green
+/*
+@media amzn-kf8
+  span.dropcapold
+    font-size: 300%
+    font-weight: bold
+    height: 1em
+    float: left
+    margin: -0.2em 0.1em 0 0.1em
+
+  .dropcap
+    line-height: 100%
+    font-size: 341%
+    margin-right: 0.075em
+    margin-top: -0.22em
+    float: left
+    height: 0.8em
+
+
+@media amzn-mobi
+  span.dropcap
+    font-size: 1.5em
+    font-weight: bold
+
+  /*  tt, pre
+  /*    font-size: 3
+
+  /*     Size table
+  /* name     becomes
+  /* x-small  2
+  /* small    3
+  /* medium   4
+  /*     1em  default (nothing)
+
+  tt
+    /* mobi fun
+    /* font-size: x-small  /* turns into <font size="2" */
+    font-family: "Courier New", Courier, monospace
+
+  pre
+    margin-left: 1em
+    margin-bottom: 1em
+    /* mobi fun
+    font-size: x-small
+    font-family: "Courier New", Courier, monospace
+    white-space: pre-wrap
+    display: block
+    .no-indent
+      margin-left: 0em
+      text-indent: 0em
+
+  div.no-indent
+    margin-left: 0em
+    text-indent: 0em
+
+  /* Sass wants to add em to the end..., hardcoded for now */
+
+  h1
+    font-size: 2em
+
+  h2
+    font-size: 1em
+
+  h3
+    font-size: 1 + $h1-size/1.6
+
+  h4
+    font-size: $h1-size/1.6
+
+  blockquote
+    /* something in this css causes blockquotes to get doubly indented! (BUG)
+    font-style: italics
+    margin-left: 0em
+    margin-right: 0em
+
+
+  /* descendant selectors don't work in mobi7 infact this will override the preview h1 defintion! */
+  /* h1 tt, h2 tt {
+  /*   font-size: 1em;
+  /*   color: green;}
+
+  div.note
+    border: 1px solid black
+    /*text-indent: 1em
+
+  div.note, .note-p
+    text-indent: 1em
+    margin-left: 0
+    margin-right: 0
+    font-style: italic
+
+  /* Since Kindle doesn't like multiple classes have to have combinations (fixed in 2.7)
+  .note-p-first
+    text-indent: 0
+    margin-left: 1em
+    margin-right: 1em
+  .note-p
+    text-indent: 1em
+    margin-left: 1em
+    margin-right: 1em
+
+  /* Poetry handing indent hacks
+
+.pos1
+  margin-left: 1em
+  text-indent: -1em
+.pos2
+  margin-left: 2em
+  text-indent: -1em
+.pos3
+  margin-left: 3em
+  text-indent: -1em
+.pos4
+  margin-left: 4em
+  text-indent: -1em
 
 @font-face
   font-family: Inconsolata Mono
@@ -534,7 +740,7 @@ tt, pre, .mono
 
   tt
     /* mobi fun
-    font-size: x-small  /* turns into <font size="2" */
+    /* font-size: x-small  /* turns into <font size="2" */
     font-family: "Courier New", Courier, monospace
 
   pre
@@ -573,7 +779,7 @@ tt, pre, .mono
     text-indent: 1em
     margin-left: 0
     margin-right: 0
-    /* font-style: italic
+    font-style: italic
 
   /* Since Kindle doesn't like multiple classes have to have combinations (fixed in 2.7)
   .note-p-first
@@ -584,6 +790,172 @@ tt, pre, .mono
     text-indent: 1em
     margin-left: 1em
     margin-right: 1em
+
+/* Poetry handing indent hacks
+.pos1
+  margin-left: 1em
+  text-indent: -1em
+.pos2
+  margin-left: 2em
+  text-indent: -1em
+.pos3
+  margin-left: 3em
+  text-indent: -1em
+.pos4
+  margin-left: 4em
+  text-indent: -1em
+
+@font-face
+  font-family: Inconsolata Mono
+  font-style: normal
+  font-weight: normal
+  src: url("Inconsolata.otf")
+
+.normal-mono
+  font-family: "Courier New", Courier, monospace
+
+tt, pre, .mono
+  /* Kindle Keyboard has KF8 but no font support, fallback to default mono
+  font-family: "Inconsolata Mono", "Courier New", Courier, monospace
+  font-style: normal
+
+@font-face
+  font-family: mgopen modata
+  font-style: normal
+  font-weight: normal
+  font-size: .5em
+  src: url("MgOpenModataRegular.ttf")
+
+.modata
+  font-family: "mgopen modata"
+
+/* Nook works to here :)
+/* media queries at bottom to not confuse other platforms
+/*@media (min-width: 200px)
+/*  .px200
+/*    color: $green
+/*
+/*@media (min-width: 400px)
+/*  .px400
+/*    color: $green
+/*
+/*@media (min-width: 800px)
+/*  .px800
+/*    color: $green
+/*
+/*@media (min-width: 1200px)
+/*  .px1200
+/*    color: $green
+/* broke nook!
+/*/* WIP device specific...
+/*@media (min-width: 600px) and (height: 800px) and (amzn-kf8)
+/*  /* Kindle Keyboard w/ KF8
+/*  .kk
+/*    color: $green
+/*
+/*/* @media (min-width: 768px) and (height: 1024px) and (amzn-kf8)
+/*@media (min-width: 748px) and (min-height: 1004px) and (amzn-kf8)
+/*  /* Kindle Paperwhite
+/*  .kpw
+/*    color: $green
+/*
+/*@media (width: 600px) and (height: 1024px) and (amzn-kf8)
+/*  /* Kindle Fire
+/*  .kf
+/*    color: $green
+/*
+/*/* Retina iPad
+/*@media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5)
+/*  .retina
+/*    color: $green
+/*
+@media amzn-kf8
+  span.dropcapold
+    font-size: 300%
+    font-weight: bold
+    height: 1em
+    float: left
+    margin: -0.2em 0.1em 0 0.1em
+
+  .dropcap
+    line-height: 100%
+    font-size: 341%
+    margin-right: 0.075em
+    margin-top: -0.22em
+    float: left
+    height: 0.8em
+
+
+@media amzn-mobi
+  span.dropcap
+    font-size: 1.5em
+    font-weight: bold
+
+    tt, pre
+      font-size: 3
+
+  /*     Size table
+  /* name     becomes
+  /* x-small  2
+  /* small    3
+  /* medium   4
+  /*     1em  default (nothing)
+
+  tt
+    /* mobi fun
+    /* font-size: x-small  /* turns into <font size="2" */
+    font-family: "Courier New", Courier, monospace
+
+  pre
+    margin-left: 1em
+    margin-bottom: 1em
+    /* mobi fun
+    font-size: x-small
+    font-family: "Courier New", Courier, monospace
+    white-space: pre-wrap
+    display: block
+
+  /* Sass wants to add em to the end..., hardcoded for now */
+
+  h1
+    font-size: 2em
+
+  h2
+    font-size: 1em
+
+  h3
+    font-size: 1 + $h1-size/1.6
+
+  h4
+    font-size: $h1-size/1.6
+
+  /* descendant selectors don't work in mobi7 infact this will override the preview h1 defintion! */
+  /* h1 tt, h2 tt {
+  /*   font-size: 1em;
+  /*   color: green;}
+
+  div.note, .note-p, .note-p-first
+    text-indent: 1em
+    margin-left: 0
+    margin-right: 0
+    font-style: italic
+    font-size: x-small
+
+  /* Since Kindle doesn't like multiple classes have to have combinations (fixed in 2.7)
+  .note-p-first
+    text-indent: 0
+
+  /* Poetry handing indent hacks
+  /* see http://ebookarchitects.com/blog/backwards-compatible-poetry-for-kf8mobi/
+  /* and http://www.pigsgourdsandwikis.com/2012/01/media-queries-for-formatting-poetry-on.html
+  .pos1
+    text-indent: -1em
+  .pos2
+    text-indent: -1em
+  .pos3
+    text-indent: -1em
+  .pos4
+    text-indent: -1em
 
 /* does nook ignore this?
 .green
