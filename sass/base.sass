@@ -68,6 +68,8 @@ div.cover
   padding: 0px
   margin: 0px
 
+/* font plan- serif text, sans headers
+
 h1, h2, h3, h4, h5, h6
   hyphens: none !important
   -moz-hyphens: none !important
@@ -77,6 +79,7 @@ h1, h2, h3, h4, h5, h6
   page-break-inside: avoid
   text-indent: 0px
   text-align: left
+  font-family: Helvetica, Arial, san-serif
 
 h1
   font-size: $h1-size
@@ -118,6 +121,8 @@ p
     font-variant: small-caps
   &.no-indent
     text-indent: 0
+  /* paperwhite defaults to sans
+  font-family: "Palatino", "Times New Roman", Caecilia, serif
   -webkit-hyphens: auto
   -moz-hyphens: auto
   hyphens: auto
@@ -167,6 +172,7 @@ ul, ol, dl
   text-align: left
 
 li
+  font-family: "Palatino", "Times New Roman", Caecilia, serif
   line-height: $line-height
   orphans: 2
   widows: 2
@@ -179,8 +185,10 @@ li
 
 dt
   font-weight: bold
+  font-family: Helvetica, Arial, san-serif
 
 dd
+  font-family: "Palatino", "Times New Roman", Caecilia, serif
   p
     /* Fix paragraph indenting inside of definition lists
     text-indent: 0em
@@ -219,8 +227,13 @@ img
   max-width: 80%
   max-height: 80%
 
+img.pwhack
+  /* Paperwhite hack
+  width: 100%
+
 .group
   page-break-inside: avoid
+
 
 .caption
   text-align: center
@@ -300,6 +313,7 @@ th
   border-bottom: 1px solid $table-border-color
 
 td
+  font-family: "Palatino", "Times New Roman", Caecilia, serif
   font-size: small
   hyphens: none
   -moz-hyphens: none
@@ -365,10 +379,11 @@ table.footnote
 .copyright-top
   margin-top: 6em
 
-/* Samples
-.ingredient
-  page-break-inside: avoid
+.page-break-before
+  page-break-before: always
 
+.page-break-after
+  page-break-after: always
 .center
   text-indent: 0
   text-align: center
@@ -388,6 +403,11 @@ table.footnote
 .f-left
   float: left
 
+/* Samples
+.ingredient
+  page-break-inside: avoid
+
+
 .box-example
   background-color: $green
   margin: 2em
@@ -406,11 +426,6 @@ table.footnote
 .margin-only
   margin: 2em
 
-.page-break-before
-  page-break-before: always
-
-.page-break-after
-  page-break-after: always
 
 .smaller
   font-size: .8em
@@ -441,6 +456,34 @@ table.footnote
 .per5
   font-size: 200%
 
+
+.mousepoem p
+  line-height: 0
+  margin-left: 1em
+
+.per100
+  font-size: 100%
+  line-height: $line-height*.6
+.per90
+  font-size: 90%
+  line-height: $line-height*.6
+.per80
+  font-size: 80%
+  line-height: $line-height*.6
+.per70
+  font-size: 70%
+  line-height: $line-height*.6
+.per60
+  font-size: 60%
+  line-height: $line-height*.6
+.per50
+  font-size: 50%
+  line-height: $line-height*.7
+.per40
+  font-size: 40%
+  line-height: $line-height*.6
+
+
 .size1
   font-size: x-small
 .size2
@@ -460,6 +503,7 @@ table.footnote
   padding-left: 1em
   p
     padding-left: 1em
+
 .poetry
   margin: 1em
 
@@ -505,6 +549,17 @@ tt, pre, .mono
 
 .modata
   font-family: "mgopen modata"
+
+@font-face
+  font-family: hidden
+  font-style: normal
+  font-weight: normal
+  font-size: 1em
+  src: url("invisible1.ttf")
+
+.hidden-font
+  font-family: "hidden"
+
 
 /* Nook works to here :)
 /* media queries at bottom to not confuse other platforms
