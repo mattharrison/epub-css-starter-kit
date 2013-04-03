@@ -29,16 +29,21 @@ The other platforms of significance are nook and ibooks, in that order. Any othe
 on the cake. Support for other platforms will be given provided they don't break the top 3 platforms.
 Otherwise it is suggested that these one off platforms be given custom css on top of the starter kit.
 
+
+Examples
+==============
+
+* `rst2epub <https://github.com/mattharrison/rst2epub2>`_ uses this (there is a sample book to build there)
+* `Ebook Formatting: KF8, Mobi & EPUB <http://www.amazon.com/Ebook-Formatting-Mobi-EPUB-ebook/dp/B00BWQXHU6/ref=sr_1_2?ie=UTF8&qid=1365027107&sr=8-2>`_ illustrates the CSS here and other intricacies of creating epubs/mobis
+
+
 TODO
 =====
 
 How you can help
 
-* Need to get a css file to start from
 * Matrix of supported HTML http://wiki.mobileread.com/wiki/Device_Compatibility
 * Matrix of supported eReaders
-* Generate a sample book showing off html/css
-* Documentation of how to use the css
 * Try out the css or sample book and file bugs/patches
 
 Resources
