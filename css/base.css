@@ -63,7 +63,7 @@ h1, h2, h3, h4, h5, h6 {
   page-break-inside: avoid;
   text-indent: 0px;
   text-align: left;
-  font-family: Helvetica, Arial, san-serif; }
+  font-family: Helvetica, Arial, sans-serif; }
 
 h1 {
   font-size: 1.6em;
@@ -165,9 +165,10 @@ li {
 
 dt {
   font-weight: bold;
-  font-family: Helvetica, Arial, san-serif; }
+  font-family: Helvetica, Arial, sans-serif; }
 
 dd {
+  line-height: 1.5em;
   font-family: "Palatino", "Times New Roman", Caecilia, serif; }
   dd p {
     /* Fix paragraph indenting inside of definition lists */
